@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Classification</title>
+
+    <!-- Google Font Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Pixelify Sans', sans-serif; /* Updated to use the Pixelify Sans font */
             overflow: hidden; /* Prevents page from scrolling */
         }
 
@@ -30,20 +34,52 @@
             color: white;
             text-align: center;
         }
+        /* Font Size Adjustments */
+        h1{
+          font-size: 48px; /* Change header font size */
+        }
+
+        p {  
+          font-size: 20px; /* Change paragraph font size */
+        }
+
+
+        /* Add a bouncing animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px); /* Move up */
+            }
+            50% {
+                transform: translateY(0); /* Move back to the original position */
+            }
+            70% {
+                transform: translateY(-5px); /* Slight move up */
+            }
+            100% {
+                transform: translateY(0); /* Return to original position */
+            }
+        }
 
         .button {
-          background-size: contain; /* Ensures the image fits */
-          background-repeat: no-repeat;
-          background-position: center;
-          border: none;
-          background-color: transparent; /* No background color */
-          width: 450px; /* Match image width */
-          height: 120px; /* Match image height */
-          margin: 10px 0; /* Adjust vertical spacing */
-          cursor: pointer;
-          padding: 0; /* No extra padding */
-      }
-      
+            background-size: contain; /* Ensures the image fits */
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            background-color: transparent; /* No background color */
+            width: 150px; /* Adjusted width */
+            height: 112.5px; /* Adjusted height */
+            margin: 10px 0; /* Adjust vertical spacing */
+            cursor: pointer;
+            padding: 0; /* No extra padding */
+        }
+
+        /* Apply bounce effect only when button is pressed (active state) */
+        .button:active {
+            animation: bounce 0.5s; /* Apply the bounce animation on press */
+        }
 
         .file-upload-button {
             background-image: url('https://raw.githubusercontent.com/melisaceyhan/GreenGuardian/refs/heads/main/assets/images/button_chooseFile.png');
@@ -54,15 +90,14 @@
         }
 
         .file-input {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%; /* Match the button width */
-          height: 100%; /* Match the button height */
-          opacity: 0; /* Hide the input */
-          cursor: pointer; /* Ensures the pointer matches */
-      }
-      
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Match the button width */
+            height: 100%; /* Match the button height */
+            opacity: 0; /* Hide the input */
+            cursor: pointer; /* Ensures the pointer matches */
+        }
 
         .file-upload-wrapper {
             position: relative;
@@ -81,7 +116,7 @@
 
     <!-- Content -->
     <div class="content">
-        <h1>Welcome to the Website</h1>
+        <h1>GREEN GUARDIAN</h1>
         <p>Upload your image to classify below.</p>
         <form method="post" enctype="multipart/form-data">
             <!-- File Upload Button -->
