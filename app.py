@@ -22,7 +22,7 @@ IMG_WIDTH, IMG_HEIGHT = 128, 128  # Adjust if your model expects a different siz
 
 # Define classes in the order the model was trained.
 # Replace these with the actual class names your model predicts:
-classes = ["class1", "class2", "class3"]  # Example placeholder classes
+classes = ["CORN_healthy", "APPLE_healthy", "CORN_Notherm_Leaf_Blight","APPLE_Black_Rot","CORN_Cercospora_Leaf_Spot","APPLE_Cedar_Rust","CORN_Common_Rust"]  # Example placeholder classes
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

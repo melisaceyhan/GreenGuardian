@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Classification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .message {
+        margin-top: 20px;
+        color: green;
+      }
+      img {
+        display: block;
+        max-width: 300px;
+        margin-top: 20px;
+      }
+      .prediction {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image to Classify</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*" required>
+        <button type="submit">Upload & Evaluate</button>
+    </form>
+
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+
+    {% if file_url %}
+      <img src="{{ file_url }}" alt="Uploaded Image" />
+    {% endif %}
+
+    {% if prediction %}
+      <div class="prediction">Predicted Class: {{ prediction }}</div>
+    {% endif %}
+</body>
+</html>
