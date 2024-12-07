@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             overflow: hidden; /* Prevents page from scrolling */
         }
+
         .video-background {
             position: fixed;
             top: 0;
@@ -19,29 +20,55 @@
             object-fit: cover; /* Ensures the video covers the entire area */
             z-index: -1; /* Puts the video behind other content */
         }
+
         .content {
-            position: relative;
-            z-index: 1; /* Ensures content appears above the video */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             color: white;
             text-align: center;
-            margin-top: 20%;
         }
+
+        .button {
+          background-size: contain; /* Ensures the image fits */
+          background-repeat: no-repeat;
+          background-position: center;
+          border: none;
+          background-color: transparent; /* No background color */
+          width: 450px; /* Match image width */
+          height: 120px; /* Match image height */
+          margin: 10px 0; /* Adjust vertical spacing */
+          cursor: pointer;
+          padding: 0; /* No extra padding */
+      }
+      
+
+        .file-upload-button {
+            background-image: url('https://raw.githubusercontent.com/melisaceyhan/GreenGuardian/refs/heads/main/assets/images/button_chooseFile.png');
+        }
+
         .upload-button {
-            background: url('https://raw.githubusercontent.com/melisaceyhan/GreenGuardian/refs/heads/main/assets/images/button_submit.png') no-repeat center;
-            background-size: contain;
-            width: 400px; /* Set width for the button */
-            height: 120px; /* Set height for the button */
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            z-index: 2; /* Ensures button is on top */
-            position: relative; /* Fixes the button's position */
+            background-image: url('https://raw.githubusercontent.com/melisaceyhan/GreenGuardian/refs/heads/main/assets/images/button_submit.png');
         }
-        .upload-button span {
-            opacity: 0; /* Hidden text for accessibility */
-        }
-        input[type="file"] {
-            margin-top: 20px;
+
+        .file-input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%; /* Match the button width */
+          height: 100%; /* Match the button height */
+          opacity: 0; /* Hide the input */
+          cursor: pointer; /* Ensures the pointer matches */
+      }
+      
+
+        .file-upload-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 0;
+            margin: 0; /* Keep it tight around the button */
         }
     </style>
 </head>
@@ -57,11 +84,13 @@
         <h1>Welcome to the Website</h1>
         <p>Upload your image to classify below.</p>
         <form method="post" enctype="multipart/form-data">
-            <input type="file" name="photo" accept="image/*" required>
-            <!-- Image as button -->
-            <button type="submit" class="upload-button">
-                <span>Upload</span> <!-- Hidden text for accessibility -->
-            </button>
+            <!-- File Upload Button -->
+            <div class="file-upload-wrapper">
+                <button type="button" class="button file-upload-button"></button>
+                <input type="file" name="photo" accept="image/*" class="file-input" required>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="button upload-button"></button>
         </form>
     </div>
 </body>
